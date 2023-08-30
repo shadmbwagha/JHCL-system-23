@@ -4,7 +4,7 @@ import { OrganogramComponent } from './organogram/organogram.component';
 
 const routes: Routes = [
   {
-    path: '/organo',
+    path: 'organogram',
     component: OrganogramComponent
   }
 ];
@@ -13,4 +13,6 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+ }
