@@ -3,7 +3,8 @@ import { ConnectorModel, DataBinding,Diagram, HierarchicalTree, LayoutModel, Nod
 import { DataManager, Query } from '@syncfusion/ej2-data';
 Diagram.Inject(DataBinding, HierarchicalTree);
 export interface EmployeeInfo {
-  Name: string
+  Name: string,
+  Role: string
 }
 export interface DataInfo {
   [key : string]: string
@@ -37,7 +38,7 @@ export class OrganogramComponent {
     defaultnode.height = 50;
     defaultnode.width = 100;
     defaultnode.annotations = [
-      { content: (defaultnode.data as EmployeeInfo).Name, style: { color: "white" }}
+      { content: (defaultnode.data as  EmployeeInfo).Name, style: { color: "white" }}
       //{ content: (defaultnode.data as DataInfo)['FirstName'], style: { color: "white" }}
     ];
     defaultnode.style = { fill: '#048785', strokeColor: 'Transparent', strokeWidth: 1  };
@@ -55,7 +56,7 @@ export class OrganogramComponent {
     { Name: "John", ReportingPerson: "Yoshi", Role: "Engineer" },
     { Name: "James", ReportingPerson: "Yoshi", Role: "Engineer" },
     { Name: "Robert", ReportingPerson: "Christina", Role: "Lead" },
-    { Name: "David", ReportingPerson: "Robert", Role: "Engineer" },
+    { Name: "David", ReportingPerson: "Elizabeth", Role: "Engineer" },
     { Name: "Yang", ReportingPerson: "Elizabeth", Role: "Manager" },
     { Name: "Roland", ReportingPerson: "Yang", Role: "Lead" },
     { Name: "Paul", ReportingPerson: "Roland", Role: "Engineer" },
