@@ -53,7 +53,7 @@ export class OrganogramComponent {
     { Name: "Christina", ReportingPerson: "Elizabeth", Role: "Manager" },
     { Name: "Yoshi", ReportingPerson: "Christina", Role: "Lead" },
     { Name: "Philip", ReportingPerson: "Christina", Role: "SalesExecutive" },
-    { Name: "John", ReportingPerson: "Yoshi", Role: "Engineer" },
+    { Name: "John", ReportingPerson: ["Yoshi"], Role: "Engineer" },
     { Name: "James", ReportingPerson: "Yoshi", Role: "Engineer" },
     { Name: "Robert", ReportingPerson: "Christina", Role: "Lead" },
     { Name: "David", ReportingPerson: "Elizabeth", Role: "Engineer" },
