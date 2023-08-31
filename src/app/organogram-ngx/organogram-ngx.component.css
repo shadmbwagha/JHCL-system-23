@@ -1,0 +1,40 @@
+.org-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.org-chart-level {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.org-chart-node {
+  position: relative; /* For absolute positioning of connectors */
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 100px;
+}
+
+.ceo-node {
+  background-color: #87ceeb;
+}
+
+.manager-node {
+  background-color: #98fb98;
+}
+
+.employee-node {
+  background-color: #ffb347;
+}
+
+.connector {
+  border-top: 1px solid #ccc;
+  flex-grow: 1; /* Expands the connector */
+  margin-top: 5px; /* Adjust as needed */
+}
