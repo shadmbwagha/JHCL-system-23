@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrganogramComponent } from './organogram/organogram.component';
+import { OrganogramRanksComponent } from './organogram-ranks/organogram-ranks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OrganogramComponent
+    OrganogramComponent,
+    OrganogramRanksComponent
   ],
   imports: [
     BrowserModule,

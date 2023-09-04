@@ -4,7 +4,8 @@ import { DataManager, Query } from '@syncfusion/ej2-data';
 Diagram.Inject(DataBinding, HierarchicalTree);
 export interface EmployeeInfo {
   Name: string,
-  Role: string
+  Role: string,
+  Rank: string
 }
 export interface DataInfo {
   [key : string]: string
@@ -38,10 +39,25 @@ export class OrganogramComponent {
     defaultnode.height = 50;
     defaultnode.width = 100;
     defaultnode.annotations = [
-      { content: (defaultnode.data as  EmployeeInfo).Name, style: { color: "white" }}
+      { content: (defaultnode.data as  EmployeeInfo).Name +"\n("+ (defaultnode.data as  EmployeeInfo).Role+ ")", style: { color: "white" }}
       //{ content: (defaultnode.data as DataInfo)['FirstName'], style: { color: "white" }}
     ];
-    defaultnode.style = { fill: '#048785', strokeColor: 'Transparent', strokeWidth: 1  };
+    if((defaultnode.data as  EmployeeInfo).Rank === "rank0"){
+      defaultnode.style = { fill: '#6f409f', strokeColor: 'Transparent', strokeWidth: 1  };
+    }
+    else if((defaultnode.data as  EmployeeInfo).Rank === "rank1"){
+      defaultnode.style = { fill: '#048785', strokeColor: 'Transparent', strokeWidth: 1 };
+    }
+    else if((defaultnode.data as  EmployeeInfo).Rank === "rank2"){
+      defaultnode.style = { fill: '#CC4628 ', strokeColor: 'Transparent', strokeWidth: 1  };
+    }
+    else if((defaultnode.data as  EmployeeInfo).Rank === "rank3"){
+      defaultnode.style = { fill: '#81848A ', strokeColor: 'Transparent', strokeWidth: 1  };
+    }
+    else{
+          defaultnode.style = { fill: '#81848A', strokeColor: 'Transparent', strokeWidth: 1  };
+
+    }
     return defaultnode;
 
   }
@@ -49,19 +65,19 @@ export class OrganogramComponent {
     type: "OrganizationalChart"
   }
   public employeeData: Object[] = [
-    { Name: "Elizabeth", Role: "Director" },
-    { Name: "Christina", ReportingPerson: "Elizabeth", Role: "Manager" },
-    { Name: "Yoshi", ReportingPerson: "Christina", Role: "Lead" },
-    { Name: "Philip", ReportingPerson: "Christina", Role: "SalesExecutive" },
-    { Name: "John", ReportingPerson: ["Yoshi"], Role: "Engineer" },
-    { Name: "James", ReportingPerson: "Yoshi", Role: "Engineer" },
-    { Name: "Robert", ReportingPerson: "Christina", Role: "Lead" },
-    { Name: "David", ReportingPerson: "Elizabeth", Role: "Engineer" },
-    { Name: "Yang", ReportingPerson: "Elizabeth", Role: "Manager" },
-    { Name: "Roland", ReportingPerson: "Yang", Role: "Lead" },
-    { Name: "Paul", ReportingPerson: "Roland", Role: "Engineer" },
-    { Name: "Yvonne", ReportingPerson: "Yang", Role: "Lead" },
-    { Name: "Jack", ReportingPerson: "Yvonne", Role: "Engineer" }
+    { Name: "Elizabeth", Role: "Director", Rank: "rank0" },
+    { Name: "Christina", ReportingPerson: "Elizabeth", Role: "Manager", Rank:"rank1"},
+    { Name: "Yoshi", ReportingPerson: "Christina", Role: "Lead", Rank: "rank2"},
+    { Name: "Philip", ReportingPerson: "Christina", Role: "SalesExecutive", Rank: "rank2"},
+    { Name: "John", ReportingPerson: "Yoshi", Role: "Engineer", Rank: "rank3"},
+    { Name: "James", ReportingPerson: "Yoshi", Role: "Engineer", Ran: "rank3" },
+    { Name: "Robert", ReportingPerson: "Christina", Role: "Lead", Rank: "rank2" },
+    { Name: "David", ReportingPerson: "Elizabeth", Role: "Engineer", Rank: "rank3" },
+    { Name: "Yang", ReportingPerson: "Elizabeth", Role: "Manager", Rank:"rank1" },
+    { Name: "Roland", ReportingPerson: "Yang", Role: "Lead", Rank: "rank2" },
+    { Name: "Paul", ReportingPerson: "Roland", Role: "Engineer", Rank: "rank3" },
+    { Name: "Yvonne", ReportingPerson: "Yang", Role: "Lead", Rank: "rank2"},
+    { Name: "Jack", ReportingPerson: "Yvonne", Role: "Engineer", Rank: "rank3" }
   ];
 
   public  jsonDataSourceSettings: Object = {
